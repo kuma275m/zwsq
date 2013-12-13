@@ -57,7 +57,7 @@ class Pa extends CI_Controller {
 				'position_cv' => $cv_id,
 				'position_cl' => $cl_id,
 				'position_date' => $date,
-				'poisition_status' => 'open'
+				'position_status' => 'open'
 			);
 			if($this->paTable->add_pa($data))
 			{
