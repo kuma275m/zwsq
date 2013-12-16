@@ -69,4 +69,12 @@ class PaTable extends CI_Model {
 		$result = $query->result_array();
 		return $result;
 	}
+	public function table_pa()
+	{
+		$this->db->select('count(id) as source, position_source');
+		$this->db->group_by('position_source');	
+		$query = $this->db->get('position_application');
+		$result = $query->result_array();
+		return $result;
+	}
 }

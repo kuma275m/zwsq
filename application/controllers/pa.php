@@ -150,9 +150,18 @@ class Pa extends CI_Controller {
 		if($type=="status")
 		{
 			$data['title'] = "Application Status Report";
+			$data['pa_count'] = $this->paTable->rate_pa();
+			$this->load->view('chart/pie_chart', $data);
 		}
-		$data['pa_count'] = $this->paTable->rate_pa();
-		$this->load->view('chart/pie_chart', $data);
+		if($type=="source")
+		{
+			$data['title'] = "Application Status Report";
+			$data['column_title1'] = "Position Source";
+			$data['column_title2'] = "Number of Applications";  
+			$data['pa_count'] = $this->paTable->table_pa();
+			$this->load->view('chart/table_chart', $data);
+		}
+
 		
 	}
 }

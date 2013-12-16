@@ -66,11 +66,17 @@
 				</select>";
 			echo "<iframe id='sent_application_frame' src='".base_url()."pa/count_sent_application/month' style='width:1000px; height:220px;border:0px;text-align:left;'></iframe>";
 			echo "</div>";
-			echo "<div>";
+			echo "<div class='pull-left'>";
 			echo "<select class='form-control' style='width:220px;'>
 					<option value='month'>Application Status Report</option>
 				</select>";
 			echo "<iframe src='".base_url()."pa/count_application_status/status' style='width:500px; height:300px;border:0px;text-align:left;'></iframe>";
+			echo "</div>";
+			echo "<div class='pull-left'>";
+			echo "<select class='form-control' style='width:220px;'>
+					<option value='month'>Application Source Report</option>
+				</select>";
+			echo "<iframe src='".base_url()."pa/count_application_status/source' style='width:600px; height:300px;border:0px;text-align:left;'></iframe>";
 			echo "</div>";
 		}
 	?>
@@ -80,7 +86,7 @@
 <div style="clear:both;"></div>
 <!--Footer Start-->
 <div id="footer" class="" style="text-align:center;">
-	<div style="height:200px;"></div>
+	<div style="height:50px;"></div>
 	<p>Copyright:2013</p>
 </div>
 <!--Footer End-->

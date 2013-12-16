@@ -7,6 +7,7 @@
 				<option value='Aarresaari'>Aarresaari</option>
 				<option value='Mol'>Mol</option>
 				<option value='LinkedIn'>LinkedIn</option>
+                <option value='LinkedIn'>Monster.fi</option>
 			</select>
         <br />
         <label class='help-block'>Target Company: </label>
