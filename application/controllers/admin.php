@@ -46,10 +46,17 @@ class Admin extends CI_Controller {
 		$term = array(
 			'select' => 'count(id) as num'
 		);
-		$pa_num =  $this->paTable->get_pa($term); 
+		$pa_num =  $this->paTable->get_pa($term);
+		$term1 = array(
+			'select' => 'count(id) as num',
+			'position_status' => 'open'
+		);
+		$pa_open_num =  $this->paTable->get_pa($term1); 
 		$cv_num =  $this->cvTable->get_cv($term);
 		$cl_num =  $this->cover_letterTable->get_cl($term); 
 		$data['pa_num'] = $pa_num[0]['num'];
+		$data['pa_open_num'] = $pa_open_num[0]['num'];
+		$data['pa_close_num'] = $data['pa_num'] - $data['pa_open_num'];
 		$data['cv_num'] = $cv_num[0]['num'];
 		$data['cl_num'] = $cl_num[0]['num'];
 		$this->load->view('my_profile', $data);	

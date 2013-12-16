@@ -50,7 +50,9 @@
 			<?php 
 				if(isset($pa_num))
 				{
-					echo "Total: <b>".$pa_num."</b>";	
+					echo "Total: <b>".$pa_num."</b><br />";
+					echo "Open Applications: <b>".$pa_open_num."</b><br />";
+					echo "Close Applications: <b>".$pa_close_num."</b><br />";	
 				}
 			?>
 		</div>

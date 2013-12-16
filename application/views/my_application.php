@@ -21,7 +21,7 @@
             <td><?php echo $row['position_company'];?></td>
             <td><?php echo $row['position_source'];?></td>
             <td><?php echo $row['position_date'];?></td>
-            <td><?php echo $row['position_status'];?></td>
+            <td><?php if($row['position_status']=="open"){echo "<b style='color:#0b9134;'>";}else{echo "<b style='color:#f00505;'>";} echo $row['position_status'];?></b></td>
             <td>
             	<button id="delete" class="btn btn-default btn-xs" onclick="change_status(<?php echo $row['id'];?>);">Change Status</button>
             </td>

@@ -51,6 +51,14 @@ class Pa extends CI_Controller {
 			$this->email->attach($attachment);    
 			$this->email->send(); 
 			echo $this->email->print_debugger(); */
+			if($this->input->post('cl_name')!="")
+			{
+				$data = array(
+					'cl_title' => $this->input->post('cl_name'),
+					'cl_body' => $content
+				);	
+				$this->cover_letterTable->add_cl($data);
+			}
 			$data = array(
 				'position_source' => $source,
 				'position_company' => $company,
