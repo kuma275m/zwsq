@@ -15,7 +15,8 @@
 
         var options = {
           title: '<?php echo $title;?>',
-		  is3D: true
+		  is3D: true,
+		  animation: {duration: 600, easing: 'out'}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

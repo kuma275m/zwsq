@@ -37,7 +37,7 @@
             <a id="application" class="list-group-item" onClick="change('application');"><button type="button" class="btn btn-info form-control">My Application</button></a>
 		</div>
     </div>
-    <div id="center_right"class="pull-left">
+    <div id="center_right"class="pull-left" style="min-height:500px;">
     <?php
 		if(isset($msg))
 		{
@@ -74,7 +74,7 @@
 			echo "</div>";
 			echo "<div class='pull-left'>";
 			echo "<select class='form-control' style='width:220px;'>
-					<option value='month'>Application Source Report</option>
+					<option value='month'>Position Source Report</option>
 				</select>";
 			echo "<iframe src='".base_url()."pa/count_application_status/source' style='width:600px; height:300px;border:0px;text-align:left;'></iframe>";
 			echo "</div>";

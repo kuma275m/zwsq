@@ -16,7 +16,8 @@
         var options = {
           title: '<?php echo $title;?>',
 		  legend: { position: 'bottom' },
-		  vAxis: {ticks: [0,2,4,6,8,10]}
+		  vAxis: {ticks: [0,2,4,6,8,10]},
+		  animation: {duration: 1000, easing: 'out',}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));

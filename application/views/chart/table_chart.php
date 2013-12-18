@@ -19,7 +19,7 @@
       var formatter = new google.visualization.BarFormat({width: 100});
       formatter.format(data, 1); // Apply formatter to second column
     
-      table.draw(data, {allowHtml: true, showRowNumber: true});
+      table.draw(data, {allowHtml: true, showRowNumber: false, animation: {duration: 600, easing: 'out'}});
     }
     
     google.setOnLoadCallback(drawVisualization);

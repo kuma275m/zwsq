@@ -1,0 +1,117 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.4
+-- http://www.phpmyadmin.net
+--
+-- 主机: localhost
+-- 生成日期: 2013 年 12 月 18 日 14:11
+-- 服务器版本: 5.6.12-log
+-- PHP 版本: 5.4.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- 数据库: `zwsqcms`
+--
+CREATE DATABASE IF NOT EXISTS `zwsqcms` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `zwsqcms`;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cover_letter`
+--
+
+DROP TABLE IF EXISTS `cover_letter`;
+CREATE TABLE IF NOT EXISTS `cover_letter` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `cl_title` varchar(200) NOT NULL,
+  `cl_body` text NOT NULL,
+  `cl_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `cl_title` (`cl_title`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cv`
+--
+
+DROP TABLE IF EXISTS `cv`;
+CREATE TABLE IF NOT EXISTS `cv` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `cv_title` varchar(200) NOT NULL,
+  `cv_address` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cv_title` (`cv_title`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `position_application`
+--
+
+DROP TABLE IF EXISTS `position_application`;
+CREATE TABLE IF NOT EXISTS `position_application` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `position_company` varchar(200) NOT NULL,
+  `position_source` varchar(200) NOT NULL,
+  `position_cl` int(10) NOT NULL,
+  `position_cv` int(10) NOT NULL,
+  `position_date` date NOT NULL,
+  `position_status` varchar(5) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `position_company` (`position_company`,`position_source`,`position_date`,`position_status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `position_publisher`
+--
+
+DROP TABLE IF EXISTS `position_publisher`;
+CREATE TABLE IF NOT EXISTS `position_publisher` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `publisher_name` varchar(200) NOT NULL,
+  `publisher_address` varchar(200) NOT NULL,
+  `publisher_search_address` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `publisher_name` (`publisher_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- 插入之前先把表清空（truncate） `position_publisher`
+--
+
+TRUNCATE TABLE `position_publisher`;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `username` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`,`password`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 插入之前先把表清空（truncate） `user`
+--
+
+TRUNCATE TABLE `user`;
+--
+-- 转存表中的数据 `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e');

@@ -23,7 +23,7 @@ class Email extends CI_Model {
         $this->email->to($mailto);  
         $this->email->subject($topic);  
         $this->email->message($content);
-		//$this->email->attach($attachment);    
+		$this->email->attach($attachment);    
   		
         $this->email->send();  
   		//echo $mailto."<br />".$topic."<br />".$content."<br />".$attachment;
