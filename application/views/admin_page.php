@@ -3,10 +3,12 @@
 	<meta charset="utf-8">
 	<title>ZWSQCMS</title>
 	<link href="<?php echo base_url();?>static/css/bootstrap.css" rel="stylesheet" media="screen" type="text/css" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>static/js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>static/js/bootstrap.js"></script>
     <script charset="utf-8" src="<?php echo base_url()?>extension/kindeditor/kindeditor-min.js"></script>
 	<script charset="utf-8" src="<?php echo base_url()?>extension/kindeditor/lang/en.js"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo base_url()?>extension/My97DatePicker/WdatePicker.js"></script>
+
 <body>
 <!--Header Start-->
 <div id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -28,7 +30,7 @@
 <!--Center Start-->
 <div id="center">
 	<div style="height:80px;"></div>
-    <div id="center_left" class="col-xs-2 col-sm-2 sidebar-offcanvas pull-left">
+    <div id="center_left" class="col-xs-2 col-sm-2 sidebar-offcanvas pull-left in">
 		<div class="list-group" style="text-align:center">
 			<a href="<?php echo base_url();?>admin" class="list-group-item"><b>Control Pannel</b></a>
             <a id="cv" class="list-group-item" onClick="change('cv');"><button type="button" class="btn btn-info form-control">My CV</button></a>
@@ -37,7 +39,7 @@
             <a id="application" class="list-group-item" onClick="change('application');"><button type="button" class="btn btn-info form-control">My Application</button></a>
 		</div>
     </div>
-    <div id="center_right"class="pull-left" style="min-height:500px;">
+    <div id="center_right" class="pull-left fade in" style="min-height:500px;">
     <?php
 		if(isset($msg))
 		{
@@ -64,8 +66,8 @@
 					<option value='month'>Monthly Report</option>
 					<option value='week'>Weekly Report</option>
 				</select>";
-			echo "<iframe id='sent_application_frame' src='".base_url()."pa/count_sent_application/month' style='width:1000px; height:220px;border:0px;text-align:left;'></iframe>";
-			echo "</div>";
+			echo "<iframe id='sent_application_frame' class='fade in' src='".base_url()."pa/count_sent_application/month' style='width:1000px; height:220px;border:0px;text-align:left;'></iframe>";
+			echo "</div><br />";
 			echo "<div class='pull-left'>";
 			echo "<select class='form-control' style='width:220px;'>
 					<option value='month'>Application Status Report</option>
@@ -77,9 +79,10 @@
 					<option value='month'>Position Source Report</option>
 				</select>";
 			echo "<iframe src='".base_url()."pa/count_application_status/source' style='width:600px; height:300px;border:0px;text-align:left;'></iframe>";
-			echo "</div>";
+			echo "</div></div>";
 		}
 	?>
+
     </div>
 </div>
 <!--Center End-->
@@ -119,9 +122,11 @@
 	{
 		$('.list-group-item').removeClass("active");
 		$('#'+value).addClass("active");
-		//htmlobj=$.ajax({url:"<?php echo base_url();?>admin/"+value,async:false});
-  		//$("#center_right").html(htmlobj.responseText);
-		$("#center_right").load("<?php echo base_url();?>admin/"+value);
+		$("#center_right").fadeOut("slow");
+		htmlobj=$.ajax({url:"<?php echo base_url();?>admin/"+value,async:false});
+		$("#center_right").html(htmlobj.responseText);
+		//$("#center_right").load("<?php echo base_url();?>admin/"+value);
+		$("#center_right").fadeIn("slow");
 	}
 	function change_report(value)
 	{

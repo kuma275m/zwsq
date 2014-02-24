@@ -31,10 +31,10 @@ class CI_Email {
 	var	$useragent		= "CodeIgniter";
 	var	$mailpath		= "/usr/sbin/sendmail";	// Sendmail path
 	var	$protocol		= "smtp";	// mail/sendmail/smtp
-	var	$smtp_host		= "ssl://smtp.googlemail.com";		// SMTP Server.  Example: mail.earthlink.net
-	var	$smtp_user		= "kuma275m@gmail.com";		// SMTP Username
-	var	$smtp_pass		= "kuma840224xzD";		// SMTP Password
-	var	$smtp_port		= "465";		// SMTP Port
+	var	$smtp_host		= "";		// SMTP Server.  Example: mail.earthlink.net
+	var	$smtp_user		= "";		// SMTP Username
+	var	$smtp_pass		= "";		// SMTP Password
+	var	$smtp_port		= "";		// SMTP Port
 	var	$smtp_timeout	= 300;		// SMTP Timeout in seconds
 	var	$smtp_crypto	= "";		// SMTP Encryption. Can be null, tls or ssl.
 	var	$wordwrap		= TRUE;		// TRUE/FALSE  Turns word-wrap on/off

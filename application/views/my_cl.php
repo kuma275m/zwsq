@@ -1,6 +1,32 @@
 <div>
-    <a href="<?php echo base_url();?>cl/new_cover_letter" class="btn btn-xs"><button class="btn btn-xs">New Cover Letter</button></a>
+    <button class="btn btn-xs" data-toggle="modal" data-target="#add_new" >Create New Cover Letter</button>
 <br /><br />
+</div>
+<div class="modal fade" id="add_new" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog"  style="width:800px;">
+    <div class="modal-content">
+          <form method="post" action="<?php echo base_url();?>cl/<?php if(isset($cl)){echo $cl['route']."/".$cl[0]['id'];}else{echo "create_cl";}?>" enctype="multipart/form-data">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create Cover Letter</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="title" name="title" class="form-control" placeholder="Cover Letter Title" <?php if(isset($cl)) {echo "value='".$cl[0]['cl_title']."'";} ?> />
+        <br />
+		<textarea name="body" style="width:100%;height:400px;padding:10px;" placeholder="Cover Letter Content">
+        <?php if(isset($cl)) echo $cl[0]['cl_body']?>
+        </textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-default" name="submit" id="submit" value="Submit" />
+      <script>
+	  init_editor();
+	  </script>
+      </div>
+      </form>
+    </div>
+  </div>
 </div>
 <?php
 	if(isset($cl_list))

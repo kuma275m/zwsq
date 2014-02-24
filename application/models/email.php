@@ -8,9 +8,9 @@ class Email extends CI_Model {
           
         //以下设置Email参数  
         $config['protocol'] = 'smtp';  
-        $config['smtp_host'] = 'smtp.sina.com';  
-        $config['smtp_user'] = 'kuma275m';  
-        $config['smtp_pass'] = 'kuma840224xzD';  
+        $config['smtp_host'] = '';  
+        $config['smtp_user'] = '';  
+        $config['smtp_pass'] = '';  
         $config['smtp_port'] = '25'; 
         $config['charset'] = 'utf-8';  
         $config['wordwrap'] = TRUE; 
@@ -19,7 +19,7 @@ class Email extends CI_Model {
         $this->email->initialize($config);              
           
         //以下设置Email内容  
-        $this->email->from('kuma275m@sina.com', 'kuma275m');  
+        $this->email->from('', '');  
         $this->email->to($mailto);  
         $this->email->subject($topic);  
         $this->email->message($content);

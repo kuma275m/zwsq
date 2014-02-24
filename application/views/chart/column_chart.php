@@ -14,7 +14,7 @@
         ]);
 
         var options = {
-          title: '<?php echo $title;?>',
+          title: '<?php echo $title." (".$range.")";?>',
 		  legend: { position: 'bottom' },
 		  vAxis: {ticks: [0,2,4,6,8,10]},
 		  animation: {duration: 1000, easing: 'out',}

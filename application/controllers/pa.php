@@ -86,7 +86,7 @@ class Pa extends CI_Controller {
 			);
 			$data['cl_list'] = $this->cover_letterTable->get_cl($term);
 			$data['cv_list'] = $this->cvTable->get_cv($term1);
-			$this->load->view('admin_page', $data);
+			$this->load->view('send_application', $data);
 		}
 	}
 	
@@ -94,7 +94,6 @@ class Pa extends CI_Controller {
 	{
 		$type = $this->uri->segment(3);
 		$now = date('Y-m-d');
-		//$now = "2013-12-01";
 		$str_now = strtotime($now);
 		if($type=="month")
 		{
@@ -113,9 +112,16 @@ class Pa extends CI_Controller {
 			'now' => $now,
 			'before' => $before
 		);
+		$data['range'] = $before." - ".$now;
 		$data['pa_count'] = $this->paTable->count_pa($term);
+		if($data['pa_count'] == null)
+		{
+
+			echo "Sorry, during this ".$type." you did not send any application. Please work hard!";
+		}
+		else {
 		$this->load->view('chart/column_chart', $data);
-		//echo json_encode($result);
+		}//echo json_encode($result);
 		//print_r($result);
 		
 	}

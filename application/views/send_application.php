@@ -1,7 +1,5 @@
-<div class="box-shadows" id="add_new" style="background:#ffffff;width:1000px;height:auto;padding:10px;text-align:left;">
+
 	<form method="post" action="<?php echo base_url();?>pa/send_application" enctype="multipart/form-data">
-    	<h2 class="text-shadows">Send Application</h2>
-        <br />
         <label class='help-block'>Position Source: </label>
 			<select id='source' name='source' class='form-control'>
 				<option value='Aarresaari'>Aarresaari</option>
@@ -48,15 +46,16 @@
 			</select>
         <br />
         <div id="textarea">
-		<textarea id="cl_body" name="body" style="width:980px;height:400px;padding:10px;" placeholder="Cover Letter Content">
+		<textarea id="cl_body" name="body" style="width:100%;height:400px;padding:10px;" placeholder="Cover Letter Content">
         </textarea></div>
         <br />
         <label class="help-block">Save cover letter as new template:</label>
         <input type="text" id="cl_name" name="cl_name" class="form-control" placeholder="Template Title">
         <br />
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <input type="submit" class="btn btn-default" name="submit" id="submit" value="Submit" />
     </form>
-</div>
+
 <script>
 
 	function get_cl_body(value)

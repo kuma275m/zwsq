@@ -1,20 +1,31 @@
 <div>
-	<button class="btn btn-xs" onClick="show('add_new');">Upload CV</button>
+	<button class="btn btn-xs" data-toggle="modal" data-target="#add_new" >Upload CV</button>
 <br /><br />
 </div>
-<div class="box-shadows collapse text-shadows" id="add_new" style="background:#ffffff;position:absolute;top:80px;left:305px;width:600px;height:auto;padding:10px;text-align:center;">
-	<form method="post" action="<?php echo base_url();?>cv/upload_cv" enctype="multipart/form-data">
-    	<h2>Upload New CV</h2>
-        <br />
+<div class="modal fade" id="add_new" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:400px;">
+    <div class="modal-content">
+     <form method="post" action="<?php echo base_url();?>cv/upload_cv" enctype="multipart/form-data">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Upload New CV</h4>
+      </div>
+      <div class="modal-body">
         <input type="text" id="title" name="title" class="form-control" placeholder="CV Name" />
         <br />
 		<label for="userfile">Select File</label>
 		<input type="file" id="userfile" name="userfile">
 		<p class="help-block">Pdf or Doc file is accepted.</p>
-        <br />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <input type="submit" class="btn btn-default" name="submit" id="submit" value="Submit" />
-    </form>
+      </div>
+          </form>
+    </div>
+  </div>
 </div>
+
 <?php
 	if(isset($cv_list))
 	{ ?>
